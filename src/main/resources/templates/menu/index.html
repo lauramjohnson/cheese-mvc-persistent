@@ -5,14 +5,15 @@
 <body class="container">
     <h1 th:text="${title}">Default Title</h1>
     <nav th:replace="fragments :: navigation"></nav>
-    <p th:unless="${categories} and ${categories.size()}">no categories :(</p>
+    <p></p>
+    <p></p>
+    <ul>
+        <li th:each="menu : ${menus}">
+            <a th:href="'/menu/view/' + ${menu.id}" th:text="${menu.name}"></a>
+        </li>
+    </ul>
 
-
-<ul>
-    <li th:each="category : ${categories}" th:text="${category.name}"></li>
-</ul>
-
-<button> <a href="/category/add">Add Category</a></button>
+    <p><a href="/menu/add">Add Menu</a></p>
 
 </body>
 </html>
